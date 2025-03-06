@@ -1,0 +1,241 @@
+
+
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.button {
+    padding: 6px 12px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+ 
+
+.container { max-width: 400px; margin: 50px auto; padding: 20px; }
+        .form-group { margin-bottom: 15px; }
+        input { width: 100%; padding: 8px; }
+        .toggle-form { cursor: pointer; color: blue; }   
+    
+
+        .specialbutton {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #e0cb09; /* Green */
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            border: 2px solid #9b9106;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+        
+        .specialbutton:hover {
+            background-color: #798101;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffcc00;
+    padding: 15px;
+    color: black;
+}
+
+.title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 24px;
+}
+
+.menu-button, .logout-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Dropdown Menu */
+/* Dropdown Menu */
+.menu-container {
+    position: relative;
+    display: inline-block;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    width: max-content; /* Ensures width matches the largest item */
+    min-width: 150px; /* Sets a minimum width */
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+.dropdown-menu .dropdown-item {
+    display: block;
+    width: 100%; /* Each item takes full width */
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.dropdown-menu .dropdown-item:last-child {
+    border-bottom: none; /* Removes border from last item */
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: #ffcc00;
+}
+
+/* Show dropdown on hover */
+.menu-container:hover .dropdown-menu {
+    display: block;
+}
+
+
+/* Main Section Layout */
+.main-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+/* Sections */
+.left-section, .middle-section, .right-section {
+    background-color: #fff8c6;
+    color: black;
+    padding: 20px;
+    flex: 1;
+    margin: 10px;
+}
+
+
+/* Toggle Dropdown */
+.toggle-title {
+    cursor: pointer;
+    background: #ffcc00;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.toggle-content {
+    display: none;
+    padding: 10px;
+}
+
+/* Bottom Sections */
+.bottom-section {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.bottom-box {
+    background-color: #fff8c6;
+    color: black;
+    padding: 15px;
+    margin: 5px;
+    text-align: center;
+}
+
+/* Footer          */
+.footer {
+    background-color: #ffcc00;
+    color: black;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.footer-rights {
+    text-align: center;
+    
+}
+
+/* Chat Window             */
+.chat-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.chat-btn {
+    background-color: #ffcc00;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.chat-window {
+    display: none;
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    width: 250px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.chat-window textarea {
+    width: 100%;
+    height: 50px;
+}
+
+.send-btn, .close-btn {
+    display: block;
+    margin-top: 5px;
+    width: 100%;
+    background: #ffcc00;
+    border: none;
+    padding: 5px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+    
+    .footer-info {
+        flex-direction: column;
+        text-align: center;
+    }
+}

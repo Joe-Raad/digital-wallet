@@ -1,0 +1,181 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Wallet</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+
+
+    <header class="header">
+        <div class="menu-container">
+            <button class="menu-button">☰</button>
+            <div class="dropdown-menu">
+                <button class="dropdown-item"><a href="index.html">Login</a></button>
+                <button class="dropdown-item"><a href="index.html">Signup</a></button>
+                <button class="dropdown-item"><a href="privacyrules.html">Privacy rules</a></button>
+            </div>
+        </div>
+        <h1 class="title">Digital Wallet</h1>
+        <button class="logout-button" class="specialbutton">Logout</button>  
+    </header>
+
+    <main class="main-container">
+        <!-- Left Section -->
+        <section class="left-section">
+            <div class="faq">
+                <h2 class="toggle-title">FAQs</h2>
+                <p class="toggle-content"><a href="faq.html">Frequently Asked Questions go here.</a></p>
+            </div>
+            <div class="guides">
+                <h2 class="toggle-title">Guides</h2>
+                <p class="toggle-content"><a href="guides.html">Guides and instructions go here.</a></p>
+            </div>
+        </section>
+
+        <!-- Middle Section -->
+        <section class="middle-section">
+            <div class="container">
+                <div id="signup-form">
+                    <h2>Sign Up</h2>
+                    <form onsubmit="return handleSignup(event)">
+                        <div class="form-group">
+                            <input type="text" id="username" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="password" placeholder="Password" required>
+                        </div>
+                        <button type="submit">Sign Up</button>
+                    </form>
+                    <p>Already have an account? <span class="toggle-form" onclick="showLogin()">Login</span></p>
+                </div>
+        
+                <div id="login-form" style="display: none;">
+                    <h2>Login</h2>
+                    <form onsubmit="return handleLogin(event)">
+                        <div class="form-group">
+                            <input type="email" id="login-email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" id="login-password" placeholder="Password" required>
+                        </div>
+                        <button type="submit">Login</button>
+                    </form>
+                    <p>Don't have an account? <span class="toggle-form" onclick="showSignup()">Sign Up</span></p>
+                </div>
+            </div>
+        
+        </section>
+
+        <!-- Right Section -->
+        <section class="right-section">
+            <div class="news">
+                <h2 class="toggle-title">News & Updates</h2>
+                <p class="toggle-content"><a href="news.html" >digital wallet news appears here.</a></p>
+            </div>
+            <div class="privacy">
+                <h2 class="toggle-title">Privacy & Regulations</h2>
+                <p class="toggle-content"><a href="privacy.html">Privacy and Regulations go here.</a></p>
+            </div>
+            
+        </section>
+    </main>
+
+
+    <!-- Bottom Row Sections -->
+    <div class="bottom-section">
+        <div class="bottom-box">A digital wallet is a financial instrument that enables electronic transactions and stores
+             a user's financial information. These wallets offer easy accessibility through any connected device.
+             It helps users make seamless transactions by eliminating the need for carrying physical cash or cards.</div>
+        
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-info">
+            <div>Phone: +961 71 327 954</div>
+            <div>joeraa2002@gmail.com</div>
+            <div>Address: Beirut, Al Hadath</div>
+            <div>Privacy & Terms</div>
+        </div>
+        <p class="footer-rights">© 2025 Digital Wallet. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Popup Chat Window -->
+    <div class="chat-popup">
+        <button class="chat-btn">Chat</button>
+        <div class="chat-window">
+            <!--   -->
+            <textarea placeholder="Type your inquiry..."></textarea>
+            <button class="send-btn">Send</button>
+            <button class="close-btn">Close</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+
+    <script>
+        function showLogin() {
+            document.getElementById('signup-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
+        }
+
+        function showSignup() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('signup-form').style.display = 'block';
+        }
+
+        async function handleSignup(e) {
+            e.preventDefault();
+            const user = {
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value
+            };
+
+            const response = await fetch('signup.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(user)
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                window.location.href = 'profile.php'; //profile.php
+            } else {
+                alert(result.message);
+            }
+        }
+
+        async function handleLogin(e) {
+            e.preventDefault();
+            const credentials = {
+                email: document.getElementById('login-email').value,
+                password: document.getElementById('login-password').value
+            };
+
+            const response = await fetch('login.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(credentials)
+            });
+
+            const result = await response.json();
+            if (result.success) {
+                window.location.href = 'mainaccount.php';
+            } else {
+                alert(result.message);
+            }
+        }
+    </script>
+</body>
+</html>
