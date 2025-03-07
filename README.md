@@ -4,7 +4,7 @@
 
 Here is the ER diagram for this project:
 
-![ER Diagram](C:\Users\USER\Downloads.jpg)
+![ER Diagram](Digital-Wallet(DB).jpg)
 
 🌍 Get in Touch
 Portfolio: [(https://github.com/JoeyRaad)]
